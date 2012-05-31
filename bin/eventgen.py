@@ -9,13 +9,15 @@ sys.path.append(path_prepend)
 
 import logging
 import threading
+import multiprocessing
 import time
 import datetime
 from select import select
 from eventgenconfig import Config
 from timeparser import timeDelta2secs
 
-class Timer(threading.Thread):
+#class Timer(threading.Thread):
+class Timer(multiprocessing.Process):
     time = None
     stopping = None
     interruptcatcher = None
@@ -29,7 +31,8 @@ class Timer(threading.Thread):
         self.countdown = 0
         
         self.sample = sample
-        threading.Thread.__init__(self)
+        #threading.Thread.__init__(self)
+        multiprocessing.Process.__init__(self)
 
     def run(self):
         if self.sample.delay > 0:
