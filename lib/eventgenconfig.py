@@ -79,6 +79,8 @@ class Config:
     backfillSearchUrl = None
     minuteOfHourRate = None
     gmt = None
+    csvTimeColName = None
+    csvMaxColSize = None
 
     ## Validations
     _validSettings = ['disabled', 'blacklist', 'spoolDir', 'spoolFile', 'breaker', 'sampletype' , 'interval',
@@ -87,7 +89,7 @@ class Config:
                     'fileBackupFiles', 'splunkHost', 'splunkPort', 'splunkMethod', 'splunkUser', 'splunkPass',
                     'index', 'source', 'sourcetype', 'host', 'hostRegex', 'projectID', 'accessToken', 'mode',
                     'backfill', 'backfillSearch', 'eai:userName', 'eai:appName', 'timeMultiple', 'debug', 
-                    'minuteOfHourRate', 'gmt']
+                    'minuteOfHourRate', 'gmt', 'csvTimeColName', 'csvMaxColSize']
     _validTokenTypes = {'token': 0, 'replacementType': 1, 'replacement': 2}
     _validHostTokens = {'token': 0, 'replacement': 1}
     _validReplacementTypes = ['static', 'timestamp', 'replaytimestamp', 'random', 'rated', 'file', 'mvfile', 'integerid']
@@ -95,7 +97,7 @@ class Config:
     _validSplunkMethods = ['http', 'https']
     _validSampleTypes = ['raw', 'csv']
     _validModes = ['sample', 'replay']
-    _intSettings = ['interval', 'count', 'fileMaxBytes', 'fileBackupFiles', 'splunkPort']
+    _intSettings = ['interval', 'count', 'fileMaxBytes', 'fileBackupFiles', 'splunkPort', 'csvMaxColSize']
     _floatSettings = ['randomizeCount', 'delay', 'timeMultiple']
     _boolSettings = ['disabled', 'randomizeEvents', 'bundlelines', 'gmt']
     _jsonSettings = ['hourOfDayRate', 'dayOfWeekRate', 'minuteOfHourRate']
