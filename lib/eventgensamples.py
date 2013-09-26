@@ -185,6 +185,7 @@ class Sample:
                 logger.debug("Reading csv sample '%s' in app '%s'" % (self.name, self.app))
                 sampleDict = [ ]
                 sampleLines = [ ]
+                csv.field_size_limit(self._c.csvMaxColSize)
                 csvReader = csv.DictReader(sampleFH)
                 for line in csvReader:
                     sampleDict.append(line)
@@ -448,12 +449,12 @@ class Sample:
                 logger.debug("Finding timestamp to compute interval for events")
                 if self._lastts == None:
                     if self.sampletype == 'csv':
-                        self._lastts = self._getTSFromEvent(self._rpevents[self._currentevent]['_raw'])
+                        self._lastts = self._getTSFromEvent(self._rpevents[self._currentevent][self._c.csvTimeColName])
                     else:
                         self._lastts = self._getTSFromEvent(self._rpevents[self._currentevent])
                 if (self._currentevent+1) < len(self._rpevents):
                     if self.sampletype == 'csv':
-                        nextts = self._getTSFromEvent(self._rpevents[self._currentevent+1]['_raw'])
+                        nextts = self._getTSFromEvent(self._rpevents[self._currentevent+1][self._c.csvTimeColName])
                     else:
                         nextts = self._getTSFromEvent(self._rpevents[self._currentevent+1])
                 else:
