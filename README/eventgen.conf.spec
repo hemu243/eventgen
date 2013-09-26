@@ -49,7 +49,8 @@ index = main
 source = eventgen
 sourcetype = eventgen
 host = 127.0.0.1
-
+csvTimeColName = _raw
+csvMaxColSize = 131072
 
 [<sample file name>]
     * This stanza defines a given sample file contained within the samples directory.
@@ -154,7 +155,14 @@ host = <host>
 hostRegex = <hostRegex>
     * ONLY VALID WITH outputMode SPLUNKSTREAM
     * Allows setting the event host via a regex from the actual event itself.  Only used if host not set.
-    
+
+csvTimeColName = <column name of csv file>
+	* ONLY VALID WITH mode = replay and sampletype = csv
+	* Allow to read time stamp value form different field than raw field
+
+csvMaxColSize = <CSV field size>
+    * ONLY VALID WITH sampletype = csv
+	* Allow to set csv field size more than 131072
     
 ###############################
 ## EVENT GENERATION SETTINGS ##
