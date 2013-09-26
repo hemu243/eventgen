@@ -79,8 +79,9 @@ class Config:
     backfillSearchUrl = None
     minuteOfHourRate = None
     gmt = None
-    csvTimeColName = None
-    csvMaxColSize = None
+    # Failing if global does not have these value defined, hence defining default value
+    csvTimeColName = '_raw'
+    csvMaxColSize = 131072
 
     ## Validations
     _validSettings = ['disabled', 'blacklist', 'spoolDir', 'spoolFile', 'breaker', 'sampletype' , 'interval',
