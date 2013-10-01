@@ -62,6 +62,8 @@ class Sample:
     timeMultiple = None
     debug = None
     gmt = None
+    csvTimeColName = None
+    csvMaxColSize = None
     
     # Internal fields
     _c = None
