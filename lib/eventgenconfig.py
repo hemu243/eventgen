@@ -79,9 +79,8 @@ class Config:
     backfillSearchUrl = None
     minuteOfHourRate = None
     gmt = None
-    # Failing if global does not have these value defined, hence defining default value
-    csvTimeColName = '_raw'
-    csvMaxColSize = 131072
+    csvTimeColName = None
+    csvMaxColSize = None
 
     ## Validations
     _validSettings = ['disabled', 'blacklist', 'spoolDir', 'spoolFile', 'breaker', 'sampletype' , 'interval',
@@ -106,7 +105,7 @@ class Config:
                             'count', 'bundlelines', 'earliest', 'latest', 'hourOfDayRate', 'dayOfWeekRate', 
                             'randomizeCount', 'randomizeEvents', 'outputMode', 'fileMaxBytes', 'fileBackupFiles',
                             'splunkPort', 'splunkMethod', 'index', 'source', 'sourcetype', 'host', 'hostRegex',
-                            'projectID', 'accessToken', 'mode', 'minuteOfHourRate', 'timeMultiple']
+                            'projectID', 'accessToken', 'mode', 'minuteOfHourRate', 'timeMultiple', 'csvTimeColName', 'csvMaxColSize']
     
     def __init__(self):
         """Setup Config object.  Sets up Logging and path related variables."""
